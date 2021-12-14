@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoxShadow的使用</title>
+</head>
+
+<body>
+    <div id="box" class="box">
+        <div class="innerBox">内部元素</div>
+    </div>
+    <div class="container">
+        <div class="triangle"></div>
+        <div class="one">
+            三角形和箭头这两个图标在网页中经常会用到，例如：下拉选择框、排序、返回到上一页、导航条，分页都会用到三角形或者箭头，当然是用图片的方式的确可以实现这一样式，但是是用图片如果调整颜色那就比较困难了，除非再做一张图片，这样的做不仅浪费开发成本并且会降低网页性能。我们可以采用
+            CSS 画出三角形或者箭头：
+        </div>
+    </div>
+    <script src="./jsFile/addClickEventHandler.js">
+
+    </script>
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: lightblue;
+            box-shadow: 0px 2px 0px 2px orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .innerBox {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+        }
+        .greenInnerBox {
+            background-color: seagreen;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-width: 100px 200px 200px 400px;
+            border-top-width: 0px;
+            border-right-width: 300px;
+            border-bottom-width: 200px;
+            border-left-width: 0px;
+            border-style: solid;
+            border-color: red yellow blue green;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .one {
+            margin-top: 20px;
+            width: 300px;
+            height: 100px;
+            line-height: 25px;
+            border: 1px solid red;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            /* white-space: nowrap;
+            text-overflow: ellipsis; */
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习页面布局2</title>
+</head>
+
+<body>
+    <div class="app">
+        <div class="introduction">这是陪练组名</div>
+        <div class="tetsA">
+            <img class="tetsApic" src="https://th.wallhaven.cc/small/y8/y8vlyk.jpg"  />
+            <div class="tetsAMid">
+                <div class="titleA">tets-A组</div>
+                <div class="dateA">2021-11-26 至 2022-10-15</div>
+            </div>
+            <div class="fold">收起</div>
+            <div class="IconUp"></div>
+        </div>
+        <div class="testAPull1">
+            <div class="content">
+                <div class="testALeft">
+                    <div class="titleA">甲单元-test</div>
+                    <div class="dateA">2021-11-26 至 2022-06-17</div>
+                </div>
+                <div class="toPractice">去练习</div>
+                <div class="IconRight"></div>
+            </div>
+            <div class="bottomLine"></div>
+        </div>
+        <div class="testAPull2">
+            <div class="testALeft">
+                <div class="titleA">002单元-testcopy</div>
+                <div class="dateA">2021-11-26 至 2022-06-17</div>
+            </div>
+            <div class="toPractice">去练习</div>
+            <div class="IconRight"></div>
+        </div>
+        <div class="tetsB">
+            <img class="tetsApic" title="这是图片B" src="./assets/001.jpeg" />
+            <div class="tetsAMid">
+                <div class="titleA">tets-B组</div>
+                <div class="dateA">2021-11-26 至 2022-10-15</div>
+            </div>
+            <div class="fold">展开</div>
+            <div class="IconDown"></div>
+        </div>
+        <div class="tetsB">
+            <div class="testALeft">
+                <div class="titleA">AI陪练-test练习</div>
+                <div class="dateA">2021-05-11 至 2022-05-31</div>
+            </div>
+            <div class="unfold">展开</div>
+            <div class="IconDown"></div>
+        </div>
+        <div class="tetsB">
+            <div class="tetsApic backgroundImg">填空题图</div>
+            <div class="tetsAMid">
+                <div class="titleA">填空题</div>
+                <div class="dateA">2021-07-01 至 2022-08-20</div>
+            </div>
+            <div class="fold">展开</div>
+            <div class="IconDown"></div>
+        </div>
+        <div class="tetsB">
+            <div class="tetsApic">1126-b图</div>
+            <div class="tetsAMid">
+                <div class="titleA">1126-B组</div>
+                <div class="dateA">2021-07-01 至 2022-08-20</div>
+            </div>
+            <div class="fold">展开</div>
+            <div class="IconDown"></div>
+        </div>
+    </div>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            box-sizing: border-box;
+            /* 另一种是 content-box*/
+        }
+
+        .app {
+            width: 100vw;
+            height: 100vh;
+            background-color: #6d85e3;
+            padding: 20px 20px 0 20px;
+            overflow-y: auto;
+        }
+
+        .introduction {
+            width: 100%;
+            margin-top: 30px;
+            font-size: 18px;
+            color: white;
+        }
+
+        .tetsA {
+            width: 100%;
+            height: 80px;
+            margin-top: 24px;
+            padding-left: 12px;
+            padding-right: 17px;
+            border: 1px solid white;
+            border-radius: 10px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tetsApic {
+            width: 52px;
+            height: 52px;
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+        }
+
+        .tetsAMid {
+            width: 65%;
+            height: 60px;
+        }
+
+        .titleA {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .dateA {
+            margin-top: 12px;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-end;
+            color: grey;
+        }
+
+        .fold {
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #6d85e3;
+        }
+
+        .IconUp {
+            width: 12px;
+            height: 12px;
+            border-top: 2px solid #6d85e3;
+            border-left: 2px solid #6d85e3;
+            transform: rotate(45deg);
+        }
+
+        .testAPull1 {
+            width: 100%;
+            height: 80px;
+            padding-top: 2px;
+            padding-left: 12px;
+            padding-right: 17px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .content {
+            height: 80px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e3e3e3 ;
+            padding-bottom: 10px;
+        }
+
+        /* .bottomLine {
+            width: 100%;
+            height: 1px;
+            background-color: #e3e3e3;
+        } */
+
+        .testALeft {
+            width: 80%;
+        }
+
+        .toPractice {
+            /* margin-left: 90px; */
+            font-size: 16px;
+            color: #6d85e3;
+        }
+
+        .IconRight {
+            width: 12px;
+            height: 12px;
+            border-top: 2px solid #6d85e3;
+            border-left: 2px solid #6d85e3;
+            transform: rotate(135deg);
+        }
+
+        .testAPull2 {
+            width: 100%;
+            height: 80px;
+            padding-left: 12px;
+            padding-right: 17px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tetsB {
+            width: 100%;
+            height: 80px;
+            margin-top: 12px;
+            padding-left: 12px;
+            padding-right: 17px;
+            border: 1px solid white;
+            border-radius: 10px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .IconDown {
+            margin-bottom: 10px;
+            width: 12px;
+            height: 12px;
+            border-top: 2px solid #6d85e3;
+            border-left: 2px solid #6d85e3;
+            transform: rotate(-135deg);
+        }
+
+        .unfold {
+            margin-left: 9px;
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #6d85e3;
+        }
+        
+        .backgroundImg {
+            border: 1px solid red;
+            background-image: url('./assets/001.jpeg');
+            background-size: 300px 200px;
+            background-position: center center;
+        }
+
+    </style>
+</body>
+
+</html>
