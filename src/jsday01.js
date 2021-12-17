@@ -155,3 +155,132 @@ console.log(i);
 } while (条件);
 */
 
+// break语句和continue语句
+// break语句用于跳出代码块或循环，continue语句用于立即终止本轮循环，返回循环结构的头部开始下一轮循环。
+
+// 标签（label）
+top:
+  for (var i = 0; i < 3; i++){
+    for (var j = 0; j < 3; j++){
+      if (i === 1 && j === 1) break top;
+      console.log('i=' + i + ',j=' + j);
+    } 
+  }
+  /*
+  上面代码为一个双重循环区块，break命令后面加上了top标签（注意，top不用加引号），满足条件时，直接跳出双层循环。如果break语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。
+
+标签也可以用于跳出代码块。
+*/
+foo: {
+  console.log(1);
+  break foo;
+  console.log('本行不会输出');
+}
+console.log(2);
+// 1
+// 2
+//上面代码执行到break foo，就会跳出区块。continue语句也可以与标签配合使用。
+
+
+// 数据类型：七种：
+/* 
+数值 number
+字符串 string
+布尔值 boolean
+undefined
+null
+object：狭义对象object、数组array、函数function
+Symbol
+*/
+
+/*确定值类型的方法（三种）
+typeof运算符
+instanceof运算符
+Object.prototype.toString方法
+
+
+
+
+// 如果一个运算子是字符串，另一个运算子是非字符串，这时非字符串会转成字符串，再连接在一起。
+
+1 + 'a' // "1a"
+false + 'a' // "falsea"
+// 由于加法运算符存在重载，可能执行两种运算，使用的时候必须很小心。
+
+'3' + 4 + 5 // "345"
+3 + 4 + '5' // "75"
+// 除了加法运算符，其他算术运算符（比如减法、除法和乘法）都不会发生重载。它们的规则是：所有运算子一律转为数值，再进行相应的数学运算。
+
+1 - '2' // -1
+1 * '2' // 2
+1 / '2' // 0.5
+
+// 如果运算子是对象，必须先转成原始类型的值，然后再相加。
+
+var obj = { p: 1 };
+obj + 2 // "[object Object]2"
+
+var obj = { p: 1 };
+obj.valueOf() // { p: 1 }
+
+var obj = { p: 1 };
+obj.valueOf().toString() // "[object Object]"
+
+//自定义valueOf方法或toString方法
+var obj = {
+  valueOf: function () {
+    return 1;
+  }
+};
+
+obj + 2 // 3
+
+var obj = {
+  toString: function () {
+    return 'hello';
+  }
+};
+
+obj + 2 // "hello2"
+
+// 有一个特例，如果运算子是一个Date对象的实例，那么会优先执行toString方法。
+
+var obj = new Date();
+obj.valueOf = function () { return 1 };
+obj.toString = function () { return 'hello' };
+
+obj + 2 // "hello2"
+
+// 余数运算符（%）返回前一个运算子被后一个运算子除，所得的余数。
+// 但结果的正负号由第一个运算子的正负号决定
+-1 % 2 // -1
+1 % -2 // 1
+
+// 错误的写法
+function isOdd(n) {
+  return n % 2 === 1;
+}
+isOdd(-5) // false
+isOdd(-4) // false
+
+// 正确的写法（绝对值函数）
+function isOdd(n) {
+  return Math.abs(n % 2) === 1;
+}
+isOdd(-5) // true
+isOdd(-4) // false
+
+// 运算之后，变量的值发生变化，这种效应叫做运算的副作用（side effect）。自增和自减运算符是仅有的两个具有副作用的运算符，其他运算符都不会改变变量的值。
+
+// 自增和自减运算符有一个需要注意的地方，就是放在变量之后，会先返回变量操作前的值，再进行自增/自减操作；放在变量之前，会先进行自增/自减操作，再返回变量操作后的值。
+
+var x = 1;
+var y = 1;
+
+x++ // 1
+++y // 2
+
+
+// 3 -> 00000011
+// 4 => 00000100
+// 7    00000111
