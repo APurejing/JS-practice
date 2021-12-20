@@ -52,11 +52,12 @@ set是一个函数，表示该属性的存值函数（setter），默认为undef
 
 
 */
-{
+
+/*
     value: 123,
-    writable: false,
+    writable:false,
     enumerable: true,
     configurable: false,
     get: undefined,
     set: undefined
-  }
+*/
