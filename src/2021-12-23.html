@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>试写轮播图</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            padding-top: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button {
+            width: 100px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border: 1px solid #d8d8d8;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .prevBtn {
+            margin-right: 10px;
+        }
+
+        .nextBtn {
+            margin-left: 10px;
+        }
+
+        .unableClickBtn {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background-color: grey;
+            border: none;
+        }
+
+        .viewport {
+            width: 600px;
+            height: 300px;
+            background-color: orange;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .content {
+            width: 3600px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            background-color: lightgreen;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .item {
+            width: 600px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .one {
+            background-color: red;
+        }
+
+        .two {
+            background-color: yellow;
+        }
+
+        .three {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="prevBtn" class="button prevBtn unableClickBtn">上一个</div>
+    <div class="viewport">
+        <div id="content" class="content">
+            <div class="item one">1</div>
+            <div class="item two">2</div>
+            <div class="item three">3</div>
+            <div class="item one">4</div>
+            <div class="item two">5</div>
+            <div class="item three">6</div>
+        </div>
+    </div>
+    <div id="nextBtn" class="button nextBtn">下一个</div>
+    <script>
+        const itemCount = 6;
+        let idx = 0;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const content = document.getElementById('content');
+
+
+        prevBtn.addEventListener('click', function (e) {
+            //  点击上一个
+            if (idx === itemCount - 1) {
+                // 去掉“下一个”的灰色样式
+                nextBtn.classList.remove('unableClickBtn')
+            }
+            //  
+            if (0 < idx && idx < itemCount) {
+                idx = idx - 1;
+                content.style.left = `-${idx * 600}px`;
+                //  移动元素
+                
+                if (idx === 0) {
+                    prevBtn.classList.add('unableClickBtn');
+                }
+            }
+        });
+
+        nextBtn.addEventListener('click', function (e) {
+            // 点击下一个
+            if (idx === 0) {
+                prevBtn.classList.remove('unableClickBtn');
+            }
+            if (0 <= idx && idx < itemCount-1) {
+                idx = idx + 1;
+                content.style.left = `-${idx * 600}px`;
+
+                if (idx === itemCount - 1) {
+                nextBtn.classList.add('unableClickBtn');
+                }
+            }
+        });
+
+
+    </script>
+
+</body>
+
+</html>

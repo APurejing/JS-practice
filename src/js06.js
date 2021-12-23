@@ -169,3 +169,12 @@ var extend = function (to, from) {
   
   extend({}, { get a(){ return 1 } })
   // { get a(){ return 1 } })
+
+
+  // 控制对象状态
+  // 有时需要冻结对象的读写状态，防止对象被改变。JavaScript 提供了三种冻结方法。
+  // 最弱的一种是Object.preventExtensions，其次是Object.seal，最强的是Object.freeze。
+  /*
+  Object.preventExtensions方法  使得一个对象无法再添加新的属性。
+  Object.isExtensible方法用于检查一个对象是否使用了Object.preventExtensions方法。也就是说，检查是否可以为一个对象添加属性。
+  */
