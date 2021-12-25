@@ -82,3 +82,6 @@ function Child5() {
 }
 Child5.prototype = Object.create(Parent5.prototype); // 创建中间对象，把两个原型对象区分开，父类和子类原型对象的隔离
 Child5.prototype.constructor = Child5;
+
+
+// DOM事件机制：捕获、冒泡
