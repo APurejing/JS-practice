@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        .imgViewPort {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            font-size: 32px;
+            color: #333;
+            padding: 20px 0 0 20px;
+
+            /* box-sizing: border-box; */
+
+            /* display: flex;
+            justify-content: space-around;
+            align-items: center; */
+            /* flex-direction: column; */
+            /* position: static;
+            position: relative; */
+            /* left: 100px;
+            top: 100px; */
+
+
+
+        }
+
+        .innerContainer {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: relative;
+        }
+
+        .absoluteDiv {
+            width: 20px;
+            height: 20px;
+            background-color: blue;
+            position: relative;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        /* .one {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+        .two {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="imgView" class="imgViewPort">
+        <!-- <div class="one">容器1</div>
+        <div class="two">容器2</div> -->
+        <div class="innerContainer">
+            <div class="absoluteDiv"></div>
+        </div>
+    </div>
+    <script>
+        // const imgViewEle = document.getElementById('imgView');
+        // console.log(imgViewEle);
+        // imgViewEle.style.width = '200px';
+        // imgViewEle.style.height = '200px';
+        // imgViewEle.style.backgroundColor = 'skyblue';
+        // imgViewEle.style.color = 'red';
+        // imgViewEle.textContent = 'js修改内容';
+        const absoluteDivList = document.getElementsByClassName('absoluteDiv');
+        console.log('打印的集合是', absoluteDivList)
+        const needMoveEle = absoluteDivList[0];
+        console.log('--', needMoveEle);
+
+
+        let initialTime = 0;
+        let totalTime = 200 / 20;
+
+        //  右上角坐标(180， 0)
+        //  右下角坐标(180, 180)
+        //  左下角坐标(0, 180)
+        //  左上角(0, 0) 
+
+        const getElePosition = function(element) {
+            const left = element.style.left.split('px')[0];
+            const top = element.style.top.split('px')[0];
+            const postion = {
+                left: Number(left),
+                top: Number(top)
+            };
+            return postion;
+        }
+
+        let n = 0;
+
+        let id = setInterval(function () {
+           
+            const currentPosition = getElePosition(needMoveEle);
+            console.log('当前循环--',n, currentPosition);
+            n = n + 1;
+            if (currentPosition.top === 0 && currentPosition.left < 180) {
+                needMoveEle.style.left = currentPosition.left + 20 + 'px';
+            } if (currentPosition.left === 180 && currentPosition.top < 180) {
+                needMoveEle.style.top = currentPosition.top + 20 + 'px';
+            } if (currentPosition.top === 180 && currentPosition.left > 0) {
+                needMoveEle.style.left = currentPosition.left - 20 + 'px';
+            } if (currentPosition.left === 0 && currentPosition.top > 0) {
+                needMoveEle.style.top = currentPosition.top - 20 + 'px';
+                if (currentPosition.top - 20 === 0) {
+                    clearInterval(id);
+                }
+            }
+        }, 1000)
+
+
+    </script>
+</body>
+
+</html>
