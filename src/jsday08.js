@@ -120,7 +120,7 @@ let user = {
     }
 };
 
-user.sayHi(); // Ilya???
+user.sayHi(); // Ilya
 
 
 function User(name) {
