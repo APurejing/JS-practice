@@ -124,3 +124,45 @@ function updateRecords(records, id, prop, value) {
     }
     return records;
 }
+
+// 递归
+
+// 生成随机小数很棒，但随机数更有用的地方在于生成随机整数。
+
+// 用 Math.random() 生成一个随机小数。
+// 把这个随机小数乘以 20。
+// 用 Math.floor() 向下取整，获得它最近的整数。
+// 记住 Math.random() 永远不会返回 1。同时因为我们是在向下取整，所以最终我们获得的结果不可能有 20。 这确保了我们获得了一个在 0 到 19 之间的整数。
+
+// 把操作连缀起来，代码类似于下面：
+
+// Math.floor(Math.random() * 20);
+// 我们先调用 Math.random()，把它的结果乘以 20，然后把上一步的结果传给 Math.floor()，最终通过向下取整获得最近的整数。
+// Math.floor(Math.random() * (max - min + 1)) + min生成某个范围内的随机整数
+
+// parseInt() 函数解析一个字符串并返回一个整数。 
+// parseInt(string, radix);它还可以传入第二个参数，指定了字符串中数字的基数。 基数可以是 2 到 36 之间的整数。
+
+
+/**
+ * 条件运算符（ conditional operator,）（也称为三元运算符（ ternary operator））的就像写成一行的 if-else 表达式
+
+语法是：a ? b : c, where a 是条件，当条件返回 true 的时候运行代码 b，当条件返回 false 的时候运行代码 c。
+
+以下函数使用 if/else 语句来检查条件：
+
+function findGreater(a, b) {
+  if(a > b) {
+    return "a is greater";
+  }
+  else {
+    return "b is greater or equal";
+  }
+}
+这可以使用三元运算符重写：
+
+function findGreater(a, b) {
+  return a > b ? "a is greater" : "b is greater or equal";
+}
+
+ */
