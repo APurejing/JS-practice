@@ -189,3 +189,95 @@ const { name, age } = user;
 在这里，自动创建 name 和 age 变量，并将 user 对象相应属性的值赋值给它们。 这个方法简洁多了。
 
 你可以从对象中提取尽可能多或很少的值。 */
+
+const person = {
+    name: '小盖',
+    grade: 'female',
+    age: 18
+};
+
+const name = person.name;
+const grade = person.grade;
+const age =  person.age;
+
+
+const {name, grade, age} = person;
+
+const { name: myName, ...gradeAndAge } = person;
+
+const arr = [1, 2,3, 4, 5];
+const [a, b, c, d, e] = arr;
+const [a, ...bcd, e] = arr;
+
+const group = {
+    unit: {
+        unitId: '1',
+        unitName: '单元1',
+        createTime: '2022-01-03'
+    }
+};
+
+const { unit: {
+    unitId,
+    unitName: name,
+    createTime: time
+} } = group;
+
+
+//  map Array.prototype.map
+const arr = [1,2,3,4]; // new Array();
+
+const arr1 = arr.map((item) => {
+    return item + 1;
+});
+
+const arr2 = arr.map(function(item,index,arr){
+    //  index 
+})
+
+const personList = [
+    {
+        name: '1',
+        age: 1
+    },
+    {
+        name: '2',
+        age: 2
+    }
+]
+const  personNameList = personList.map(function(item, index, arr) {
+    return {
+        name: item.name,
+        age: item.age,
+        cutom: '新'
+    }
+});
+
+
+
+const arr1 = arr.map(function() {});
+
+//   some every
+
+const numList = [1, 2,3,4]
+const isAllNumGaterThan4 = numList.every(function(item, index) {
+    return item === 4;
+});
+
+
+// reduce
+
+const arr4 = [1, 2, 3, 4];
+
+let sum  = 0
+for (let i = 0; i < arr4.length; i++) {
+    sum  = sum + arr[i];
+}
+console.log('sum--', sum);
+
+const sum1 = arr4.reduce(function(previousValue, item, index, arr) {
+    return previousValue + item;
+}, 0)
+
+
+const 
