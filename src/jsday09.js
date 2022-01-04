@@ -280,4 +280,3 @@ const sum1 = arr4.reduce(function(previousValue, item, index, arr) {
 }, 0)
 
 
-const 
