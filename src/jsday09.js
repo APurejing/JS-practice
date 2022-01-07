@@ -198,14 +198,14 @@ const person = {
 
 const name = person.name;
 const grade = person.grade;
-const age =  person.age;
+const age = person.age;
 
 
-const {name, grade, age} = person;
+const { name, grade, age } = person;
 
 const { name: myName, ...gradeAndAge } = person;
 
-const arr = [1, 2,3, 4, 5];
+const arr = [1, 2, 3, 4, 5];
 const [a, b, c, d, e] = arr;
 const [a, ...bcd, e] = arr;
 
@@ -225,13 +225,13 @@ const { unit: {
 
 
 //  map Array.prototype.map
-const arr = [1,2,3,4]; // new Array();
+const arr = [1, 2, 3, 4]; // new Array();
 
 const arr1 = arr.map((item) => {
     return item + 1;
 });
 
-const arr2 = arr.map(function(item,index,arr){
+const arr2 = arr.map(function (item, index, arr) {
     //  index 
 })
 
@@ -245,7 +245,7 @@ const personList = [
         age: 2
     }
 ]
-const  personNameList = personList.map(function(item, index, arr) {
+const personNameList = personList.map(function (item, index, arr) {
     return {
         name: item.name,
         age: item.age,
@@ -255,12 +255,12 @@ const  personNameList = personList.map(function(item, index, arr) {
 
 
 
-const arr1 = arr.map(function() {});
+const arr1 = arr.map(function () { });
 
 //   some every
 
-const numList = [1, 2,3,4]
-const isAllNumGaterThan4 = numList.every(function(item, index) {
+const numList = [1, 2, 3, 4]
+const isAllNumGaterThan4 = numList.every(function (item, index) {
     return item === 4;
 });
 
@@ -269,13 +269,13 @@ const isAllNumGaterThan4 = numList.every(function(item, index) {
 
 const arr4 = [1, 2, 3, 4];
 
-let sum  = 0
+let sum = 0
 for (let i = 0; i < arr4.length; i++) {
-    sum  = sum + arr[i];
+    sum = sum + arr[i];
 }
 console.log('sum--', sum);
 
-const sum1 = arr4.reduce(function(previousValue, item, index, arr) {
+const sum1 = arr4.reduce(function (previousValue, item, index, arr) {
     return previousValue + item;
 }, 0)
 
@@ -285,27 +285,27 @@ const sum1 = arr4.reduce(function(previousValue, item, index, arr) {
 // 使用遍历方法（可以是任意形式的循环）输出指定值（如下）。
 
 [
-  '<li class="text-warning">no-var</li>',
-  '<li class="text-warning">var-on-top</li>',
-  '<li class="text-warning">linebreak</li>'
+    '<li class="text-warning">no-var</li>',
+    '<li class="text-warning">var-on-top</li>',
+    '<li class="text-warning">linebreak</li>'
 ]
 
 // Solutions
 // Solution 1 (Click to Show/Hide)
 const result = {
-  success: ["max-length", "no-amd", "prefer-arrow-functions"],
-  failure: ["no-var", "var-on-top", "linebreak"],
-  skipped: ["no-extra-semi", "no-dup-keys"]
+    success: ["max-length", "no-amd", "prefer-arrow-functions"],
+    failure: ["no-var", "var-on-top", "linebreak"],
+    skipped: ["no-extra-semi", "no-dup-keys"]
 };
 function makeList(arr) {
-  "use strict";
-  // change code below this line
-  const failureItems = [];
-  for (let i = 0; i < arr.length; i++) {
-    failureItems.push(`<li class="text-warning">${arr[i]}</li>`);
-  }
-  // change code above this line
-  return failureItems;
+    "use strict";
+    // change code below this line
+    const failureItems = [];
+    for (let i = 0; i < arr.length; i++) {
+        failureItems.push(`<li class="text-warning">${arr[i]}</li>`);
+    }
+    // change code above this line
+    return failureItems;
 }
 
 const failuresList = makeList(result.failure);
@@ -313,25 +313,68 @@ const failuresList = makeList(result.failure);
 
 // Solution 2 (Click to Show/Hide)
 const result = {
-  success: ["max-length", "no-amd", "prefer-arrow-functions"],
-  failure: ["no-var", "var-on-top", "linebreak"],
-  skipped: ["no-extra-semi", "no-dup-keys"]
+    success: ["max-length", "no-amd", "prefer-arrow-functions"],
+    failure: ["no-var", "var-on-top", "linebreak"],
+    skipped: ["no-extra-semi", "no-dup-keys"]
 };
 function makeList(arr) {
-  "use strict";
-  // change code below this line
-  const failureItems = arr.map(item => `<li class="text-warning">${item}</li>`);
-  // change code above this line
-  return failureItems;
+    "use strict";
+    // change code below this line
+    const failureItems = arr.map(item => `<li class="text-warning">${item}</li>`);
+    // change code above this line
+    return failureItems;
 }
 const failuresList = makeList(result.failure);
 
-const profileUpdate = function(profileData) {
+const profileUpdate = function (profileData) {
     const { name, age } = profileData;
 }
 
 
 
-const profileData1 = function(  {name, age} ) {
+const profileData1 = function ({ name, age }) {
 
 }
+
+// export default 用于为模块或文件声明一个返回值，在每个文件或者模块中应当只默认导出一个值。 
+// 此外，你不能将 export default 与 var、let 或 const 同时使用。
+export default function subtract(x, y) {
+    return x - y;
+}
+
+/**
+ * Promise 是异步编程的一种解决方案 - 它在未来的某时会生成一个值。任务完成，分执行成功和执行失败两种情况。
+ *  Promise 是构造器函数，需要通过 new 关键字来创建。 
+ * 构造器参数是一个函数，该函数有两个参数 - resolve 和 reject。 
+ * 通过它们来判断 promise 的执行结果。 
+ * Promise 有三个状态：pending、fulfilled 和 rejected。
+ * 上一个创建的 promise 一直阻塞在 pending 状态里，因为没有调用 promise 的完成方法。 
+ * Promise 提供的 resolve 和 reject 参数就是用来结束 promise 的。
+ * Promise 成功时调用 resolve，promise 执行失败时调用 reject，这些方法需要有一个参数。
+ */
+const myPromise = new Promise((resolve, reject) => {
+    if (condition) {
+        resolve("Promise was fulfilled");
+    } else {
+        reject("Promise was rejected");
+}
+});
+
+// 当程序需要花费未知的时间才能完成时（比如一些异步操作），一般是服务器请求，promise 很有用。
+// 服务器请求会花费一些时间，当结束时，需要根据服务器的响应执行一些操作。 
+// 这可以用 then 方法来实现， 当 promise 完成 resolve 时会触发 then 方法。
+
+myPromise.then(result => {
+
+});
+// result 即传入 resolve 方法的参数。
+// 当 promise 失败时会调用 catch 方法。 当 promise 的 reject 方法执行时会直接调用。 
+
+myPromise.catch(error => {
+
+});
+// error 是传入 reject 方法的参数。
+
+// JavaScript有六种原始（不可变）数据类型：
+// Boolean、Null、Undefiend、Number、String和Symbol（ES6中新增的），和一种可变的数据类型Object
+// 在JavaScript中，数组在本质上是一种对象。
