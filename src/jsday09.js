@@ -378,3 +378,38 @@ myPromise.catch(error => {
 // JavaScript有六种原始（不可变）数据类型：
 // Boolean、Null、Undefiend、Number、String和Symbol（ES6中新增的），和一种可变的数据类型Object
 // 在JavaScript中，数组在本质上是一种对象。
+
+
+// XMLHttpRequest
+
+// 异步
+// 1. 创建一个 new XMLHttpRequest 对象
+let xhr = new XMLHttpRequest();
+
+// 2. 配置它：从 URL /article/.../load GET-request
+xhr.open('GET', '/article/xmlhttprequest/example/load');
+
+// 3. 通过网络发送请求
+xhr.send();
+
+// 4. 当接收到响应后，将调用此函数
+xhr.onload = function() {
+  if (xhr.status != 200) { // 分析响应的 HTTP 状态
+    alert(`Error ${xhr.status}: ${xhr.statusText}`); // 例如 404: Not Found
+  } else { // 显示结果
+    alert(`Done, got ${xhr.response.length} bytes`); // response 是服务器响应
+  }
+};
+
+xhr.onprogress = function(event) {
+  if (event.lengthComputable) {
+    alert(`Received ${event.loaded} of ${event.total} bytes`);
+  } else {
+    alert(`Received ${event.loaded} bytes`); // 没有 Content-Length
+  }
+
+};
+
+xhr.onerror = function() {
+  alert("Request failed");
+};
