@@ -22,7 +22,6 @@ p1.getAge()
 
 
 // 语句和表达式
-// foo（）简写
 
 var a = 1;
 var b = 2;
