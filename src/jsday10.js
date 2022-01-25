@@ -35,3 +35,36 @@ sumTo(100);
 function sumTo(n) {
     return n * (n + 1) / 2;
 }
+
+
+
+function factorial(n) {
+    return (n != 1) ? n * factorial(n-1): 1;
+}
+
+
+function fib(n) {
+    return (n > 1) ? fib(n-1) + fib(n -2) : n
+}
+
+function printList(list) {
+    for (let i = 0; i < list.length; i++) {
+        const element = list[i];
+        return element
+    }
+}
+
+function sumAll(...args) { // 数组名为 args
+    console.log(args);
+    console.log(Array.isArray(args));
+    let sum = 0;
+
+    for (let arg of args) {
+        console.log('--' + arg);
+        sum += arg
+    };
+    
+    return sum;
+}
+
+sumAll(1, 2, 3)
