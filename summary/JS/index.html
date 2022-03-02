@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>测试一个防抖函数</title>
+    <style>
+      input {
+        width: 200px;
+        height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="userName">
+      歌手名：
+      <input type="text" name="" id="userName" />
+    </label>
+    <script>
+      const inputEle = document.getElementsByTagName('input')[0];
+
+      const timer = setTimeout(() => {
+        console.log('1s后执行');
+      }, 1000);
+
+      clearTimeout(timer);
+
+      //  input事件发生后，需要执行的函数
+      const inputEventHandle = function (e) {
+        console.log('this--', this);
+        console.log('事件对象--', e);
+        console.log('输入的值--', e.target.value, '要发请求查询数据');
+      };
+
+      const a = () => ({
+        name: '123'
+      });
+
+      const debounce = (fn, time) => {
+        let timer = null;
+        return (...args) => {
+          console.log('传进来的参数是什么--', args);
+          if (timer !== null) {
+            clearTimeout(timer);
+          }
+          timer = setTimeout(() => {
+            fn.call(undefined, ...args);
+            timer = null;
+          }, time);
+        };
+      };
+
+      //  升级版input事件监听器
+      //  当input事件发生以后，如果3s内没有新的新的input事件发生，才执行这个升级的advancedInputEventHandler
+      //  如果马上就有新的input发生，就在新的input事件上重新开始计时3s
+      const advancedInputEventHandle = debounce(inputEventHandle, 3000);
+
+      inputEle.addEventListener('input', advancedInputEventHandle);
+
+      // 第一次input事件发生时
+      // 1s后第二次input事件发生了
+      // 等待了3s
+      //  1s
+    </script>
+  </body>
+</html>
