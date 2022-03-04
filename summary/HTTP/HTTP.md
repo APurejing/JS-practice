@@ -53,8 +53,7 @@ HTTPS = HTTP + SSL/TLS（安全层）
 **6.同源策略和跨域**
 同源：如果两个 URL 的协议、端口和域名都完全一致的话，则这两个 URL 是同源的
 
-> http://www.baidu.com/s
-> http://www.baidu.com:80/ssdasdsadad
+> http://www.baidu.com/s > http://www.baidu.com:80/ssdasdsadad
 > http 默认端口 80，所以以上两个是同源。https 是 443
 
 同源策略怎么做：
@@ -81,3 +80,20 @@ ii.响应 POST 请求，在响应中添加 Access——Control-Allow-Origin 头
 c. 如果需要附带身份信息，JS 中需要在 AJAX 里设置 xhr.withCredentials = true.
 3.Nginx 代理/Node.js 代理
 a.前端=>后端=>另一个域名的后端
+
+**7.Session,Cookie,LocalStorage,SessionStorage 的区别**
+1.Cookie vs LocalStorage（HTML5 才有）
+Cookie 会被发送到服务器，LocalStorage 不会
+Cookie 一般最大 4k，LocalStorage 可以用 5Mb 甚至 10Mb（各浏览器不同）
+2.LocalStorage vs SessionStorage
+LocalStorage 一般不会自动过期（除非用户手动清除）
+SessionStorage 在会话结束时过期（如关闭浏览器之后，具体由浏览器自行决定）
+3.Cookie vs Session
+Cookie 存在浏览器的文件里，Session 存在服务器的文件里
+Session 是基于 Cookie 实现的，具体做法是把 SessionID 存在 Cookie 里
+
+**8.HTTP 1 和 HTTP 2 的区别**
+1.HTTP/2 使用了 2 进制传输，而且将 head 和 body 分成 帧 来传输；HTTP/1.1 是字符串传输
+2.HTTP/2 可以 压缩 header，但是 HTTP/1.1 不行
+3.HTTP/2 支持 多路复用 ，HTTP/1.1 不支持。多路复用简单来说就是一个 TCP 连接从单车道（不是单行道）变成几百个双向通行的车道。
+4.HTTP/2 支持 服务器推送，但 HTTP/1.1 不支持（实际上没多少人用）
