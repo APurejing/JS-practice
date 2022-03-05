@@ -78,7 +78,7 @@ Access-Control-Allow-Methods: POST,GET,OPTIONS,PATCH
 Access-Control-Allow-Headers: Content-Type
 ii.响应 POST 请求，在响应中添加 Access——Control-Allow-Origin 头
 c. 如果需要附带身份信息，JS 中需要在 AJAX 里设置 xhr.withCredentials = true.
-3.Nginx 代理/Node.js 代理
+3.Nginx 代理/Node.js 代理(不会不说)
 a.前端=>后端=>另一个域名的后端
 
 **7.Session,Cookie,LocalStorage,SessionStorage 的区别**
