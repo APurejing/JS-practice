@@ -12,7 +12,7 @@ Dog.prototype.say = function () {
 Dog.prototype.run = function () {
   console.log(`${this.legsNumber}条腿跑起来。`);
 };
-const d1 = new Dog('啸天'); // Dog 函数就是一个类
+d1 = new Dog('啸天'); // Dog 函数就是一个类
 d1.say();
 
 // 方法二：使用 class
