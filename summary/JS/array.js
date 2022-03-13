@@ -26,3 +26,9 @@ let pos = fruits.indexOf('Banana');
 // 通过索引删除某个元素
 let removedItem = fruits.splice(pos, 1);
 console.log(fruits);
+
+const test = (...args) => {
+  console.log('接收到的参数--', args);
+};
+
+test(1, '123', true);
