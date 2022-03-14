@@ -49,34 +49,46 @@ setTimeout(() => {
   eventHub.emit('click', 'Mary');
 }, 3000);
 
-
-用 class 实现。
+// 用 class 实现。
 
 class EventHub {
-  map = {}
+  map = {};
+  // subscribe
   on(name, fn) {
-    this.map[name] = this.map[name] || []
-    this.map[name].push(fn)
+    this.map[name] = this.map[name] || [];
+    this.map[name].push(fn);
   }
+  // dispatch
   emit(name, data) {
-    const fnList = this.map[name] || []
-    fnList.forEach(fn => fn.call(undefined, data))
+    const fnList = this.map[name] || [];
+    fnList.forEach((fn) => fn.call(undefined, data));
   }
   off(name, fn) {
-    const fnList = this.map[name] || []
-    const index = fnList.indexOf(fn)
-    if(index < 0) return
-    fnList.splice(index, 1)
+    const fnList = this.map[name] || [];
+    const index = fnList.indexOf(fn);
+    if (index < 0) return;
+    fnList.splice(index, 1);
   }
 }
 // 使用
-const e = new EventHub()
-e.on('click', (name)=>{
-  console.log('hi '+ name)
-})
-e.on('click', (name)=>{
-  console.log('hello '+ name)
-})
-setTimeout(()=>{
-  e.emit('click', 'frank')
-},3000)
+const e = new EventHub();
+e.on('click', (name) => {
+  console.log('hi ' + name);
+});
+e.on('click', (name) => {
+  console.log('hello ' + name);
+});
+setTimeout(() => {
+  e.emit('click', 'frank');
+}, 3000);
+
+const func1 = () => {
+  console.log('点击函数1');
+};
+
+const func2 = () => {
+  console.log('点击函数2');
+};
+const fnCallback = [func1, func2, '1', '2'];
+
+fnCallback.indexOf(func2);

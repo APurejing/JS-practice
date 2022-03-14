@@ -39,8 +39,8 @@ const fiveDimensionArr = [
 ];
 
 // 用栈来记录
-const flatArr = (multiDimensionArr) => {
-  const stack = [...multiDimensionArr];
+const flatArr1 = (mulArr) => {
+  const stack = [...mulArr];
   const res = [];
 
   while (stack.length) {
@@ -57,6 +57,26 @@ const flatArr = (multiDimensionArr) => {
   return res.reverse();
 };
 
-const result = flatArr(fiveDimensionArr);
+const result1 = flatArr1(fiveDimensionArr);
 
+console.log(result1);
+
+// 递归拍平数组
+
+const flatArr = (mulArr) => {
+  const stack = [...mulArr];
+  const res = [];
+  while (stack.length) {
+    const next = stack.pop();
+    if (Array.isArray(next)) {
+      stack.push(...next);
+    } else {
+      res.push(next);
+    }
+  }
+
+  return res.reverse();
+};
+
+const result = flatArr(arr);
 console.log(result);
