@@ -32,8 +32,6 @@ const throwSkill = () => {
 
 const advancedThrowSkill = throttle(throwSkill, 4000);
 
-//
-
 // 防抖（回城被打断）
 const debounce = (fn, time) => {
   // 回城计时器backTime
