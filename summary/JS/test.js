@@ -1,21 +1,14 @@
-const arr = [1, 2, [3, 4, 5, [6, 7, 8], 9], 10];
-
-const flatArr = (mulArr) => {
-  const stack = [...mulArr];
-  const res = [];
-
-  while (stack.length) {
-    const next = stack.pop();
-
-    if (Array.isArray(next)) {
-      stack.push(...next);
-    } else {
-      res.push(next);
+const ajax = (method, url, data, success, fail) => {
+  let xhr = XMLHttpRequest();
+  xhr.open(method, url);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+        success(xhr);
+      } else {
+        fail(xhr);
+      }
     }
-  }
-
-  return res.reverse();
+  };
+  xhr.send();
 };
-
-const result = flatArr(arr);
-console.log(result);
