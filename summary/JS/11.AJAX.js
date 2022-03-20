@@ -5,7 +5,7 @@ const xhr = new XHLHttpRequest();
 
 xhr.open('GET', '/xxx'); // 三个参数请求方式，请求地址，同步还是异步，默认异步
 xhr.onload = () => {
-  console.log('得到内容');
+  console.log('得到的内容');
 };
 xhr.onerror = () => {};
 
