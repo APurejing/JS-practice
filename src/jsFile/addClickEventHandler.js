@@ -10,5 +10,3 @@ targetEle.addEventListener('click', function (event) {
   //  如果没有，那么添加
   event.target.classList.toggle('greenInnerBox');
 });
-
-//  浏览器事件循环系统还是很不错的
