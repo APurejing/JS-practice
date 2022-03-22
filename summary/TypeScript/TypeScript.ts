@@ -8,6 +8,7 @@
 
 // null => []
 
+// 枚举值
 enum AnimalType {
   犬科 = '1',
   猫科 = '2'
@@ -91,6 +92,7 @@ interface Age {
   age: number;
 }
 
+// 交叉类型
 type Person1 = Name & Age;
 
 const person: Person1 = {
@@ -116,6 +118,7 @@ type Woman = {
   params: string[];
 };
 
+// 联合类型
 type Person2 = Man | Woman;
 
 const person2: Person2 = {
