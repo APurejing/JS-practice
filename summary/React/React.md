@@ -14,8 +14,11 @@ https://imweb.io/topic/579e33d693d9938132cc8d94
 
 4.React 如何实现组件间通信
 父子靠 props 传函数
-爷孙可以穿两次 props
+爷孙可以传两次 props
 任意组件用 Redux（也可以自己写一个 eventBus）
+
+如果父组件重新渲染但子组件不需要每次都重新渲染，可以用 useMemo
+页面级别组件间通信可以用 React.Context 做应用状态管理，方便数据传递
 
 5.Redux、ReduxThunk、ReduxSaga、dva、UmiJS 的区别和联系是什么？
 Redux 是 JavaScript 状态容器，提供可预测化的状态管理。重点是『状态管理』。
